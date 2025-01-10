@@ -19,23 +19,35 @@ This is a RESTful API for managing expenses. It supports CRUD operations and pro
 
 Follow these steps to set up the project locally:
 
-1. Clone the repository:
-2. Navigate to the project directory:
+1. Clone the project
+
+```bash
+  git clone https://github.com/miikEe13/gastos.git
+```
+2. Go to the project directory
+```bash
+  cd gastos
+```
 3. Install dependencies
-   ```bash
-    npm install
-4. Running the API
-    ```bash
-    npm run dev
+```bash
+  npm install
+```
+4. Start the server
+```bash
+  npm run dev
+```
+
 ## 📚 API Documentation
 The API documentation is available at:
    http://localhost:3000/api-docs/
 It includes detailed information about each endpoint, request parameters, and responses.
+
 ## 🛠️ Environment Variables
 Create a .env file in the root directory and add the following variables:
-   ```bash
+```bash
     DB_HOST=your-database-host
     DB_USER=your-database-user
     DB_PASSWORD=your-database-password
     DB_NAME=your-database-name
     PORT=3000
+```
