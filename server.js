@@ -1,32 +1,32 @@
 // server.js
 const express = require('express');
 const db = require('./config/db');
-const cors = require('cors'); // Importar CORS
+const cors = require('cors'); // Import CORS
 require('dotenv').config();
-const gastoRoutes = require('./routes/gastoRoutes');
+const expenseRoutes = require('./routes/expenseRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware para parsear JSON
+// Middleware to parse JSON
 app.use(express.json());
 
-// Middleware de CORS
+// CORS Middleware
 app.use(cors({
-    origin: '*', // Permitir cualquier origen (ajústalo en producción)
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-    allowedHeaders: ['Content-Type', 'Authorization'] // Encabezados permitidos
+    origin: '*', // Allow any origin (adjust in production)
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
 }));
 
-// Rutas
-app.use('/api/gastos', gastoRoutes);
+// Routes
+app.use('/api', expenseRoutes);
 
-// Ruta de prueba
+// Test route
 app.get('/', (req, res) => {
-    res.send('✅ API de gastos funcionando correctamente');
+    res.send('✅ Expense API is working correctly');
 });
 
-// Iniciar el servidor
+// Start the server
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+    console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
