@@ -2,6 +2,8 @@
 const express = require('express');
 const db = require('./config/db');
 const cors = require('cors'); // Import CORS
+const { swaggerUi, swaggerSpec } = require('./config/swaggerConfig');
+
 require('dotenv').config();
 const expenseRoutes = require('./routes/expenseRoutes');
 
@@ -18,6 +20,9 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization'] // Allowed headers
 }));
 
+// Swagger documentation route
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 // Routes
 app.use('/api', expenseRoutes);
 
@@ -29,4 +34,5 @@ app.get('/', (req, res) => {
 // Start the server
 app.listen(PORT, () => {
     console.log(`🚀 Server running at http://localhost:${PORT}`);
+    console.log(`📚 Swagger Docs available at http://localhost:${PORT}/api-docs`);
 });
