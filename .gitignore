@@ -48,3 +48,7 @@ docker-compose.override.yml
 *.key
 
 package-lock.json
+
+# Ignorar archivos de imágenes subidas, pero mantener la estructura
+uploads/profiles/*
+!uploads/profiles/.gitkeep
